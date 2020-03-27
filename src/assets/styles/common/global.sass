@@ -12,8 +12,8 @@
 html
     font-size: $base-font-size
 
-* + * 
-    margin-top: 1.5rem
+// * + *
+//     margin-top: 1.5rem
 
 body
     background-color: $main-bg-color
@@ -47,9 +47,11 @@ textarea
 textarea
     resize: none
 
-section
+section,
+header,
+footer
     position: relative
-    padding: 20px 0
+    padding: 20px
 
 input,
 select,
@@ -105,6 +107,26 @@ img
 
 .bdr
     border: 1px solid red
+.bdy
+    border: 1px solid yellow
+.bdg
+    border: 1px solid green
+.bdb
+    border: 1px solid blue
 
 .debugGrid
     +debugGrid
+
+.container
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-rows: repeat(50px 1fr 50px)
+    grid-gap: 5px
+    grid-template-areas: "h h h h h h h h h h h h" "m m m c c c c c c c c c" "f f f f f f f f f f f f"
+
+    @include mw($lg)
+        grid-template-areas: "h h h h h h h h m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f"
+
+    @include mw($md)
+        grid-template-rows: repeat(50px 50px 1fr 50px)
+        grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f"
