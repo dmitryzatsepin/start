@@ -1,0 +1,13 @@
+extends template/layout
+
+block variables
+    -var title = 'О компании'
+    -var pageClass = 'page_about'
+
+block content
+    main.main2
+        h1 About company
+        hr
+        include includes/about/company-info
+        hr
+        //- и другие блоки

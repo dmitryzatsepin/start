@@ -1,0 +1,32 @@
+include ../utils/mixins
+
+block variables
+
+doctype html
+html(lang="ru-RU")
+
+    block head
+        head
+            meta(charset="utf-8")
+            title #{title}
+            meta(name="viewport" content="width=device-width, initial-scale=1.0")
+            meta(name="theme-color" content="#fff")
+            meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
+            meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+
+            link(rel="stylesheet" href="css/assets/style.css")
+            link(rel="shortcut icon" href="../img/favicons/favicon.ico" type="image/x-icon")
+            link(rel="icon" sizes="16x16" href="../img/favicons/favicon-16x16.png" type="image/png")
+            link(rel="icon" sizes="32x32" href="../img/favicons/favicon-32x32.png" type="image/png")
+
+    block body
+        body(class=pageClass)
+            block header
+                include ../common/header
+                include ../utils/debugGrid
+            block content
+            block footer
+                include ../common/footer
+            block scripts
+                script(src='assets/js/main.js')
