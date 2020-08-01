@@ -13,7 +13,7 @@ module.exports = function script() {
     .pipe(babel({
       presets: ['@babel/env']
     }))
-    .pipe(terser())
+    // .pipe(terser())
     .pipe(sourcemaps.write())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('html/js'))
