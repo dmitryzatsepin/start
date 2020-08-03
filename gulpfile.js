@@ -12,12 +12,13 @@ const copyDependencies = require('./gulp/tasks/copyDependencies')
 const lighthouse = require('./gulp/tasks/lighthouse')
 const robots = require('./gulp/tasks/robots')
 
+const ready = gulp.series(clean, copyDependencies)
+const set = gulp.parallel(pug2html, styles, grid, script, fonts, imageMinify)
 
-const dev = gulp.parallel(pug2html, styles, grid, script, fonts, imageMinify)
+const dev = gulp.series(ready, set)
+const build = gulp.series(dev, robots)
 
-const build = gulp.series(clean, copyDependencies, dev, robots)
-
-module.exports.start = gulp.series(build, serve)
+module.exports.start = gulp.series(dev, serve)
 module.exports.build = build
 
 module.exports.lighthouse = gulp.series(lighthouse)
