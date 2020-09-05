@@ -5,7 +5,7 @@ const pugLinter = require('gulp-pug-linter')
 const htmlValidator = require('gulp-w3c-html-validator')
 const bemValidator = require('gulp-html-bem-validator')
 
-module.exports = function pug2html() {
+module.exports = function pug2html(cb) {
   return gulp.src('src/pug/*.pug')
     .pipe(plumber())
     .pipe(pugLinter({ reporter: 'default' }))
